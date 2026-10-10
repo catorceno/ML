@@ -20,7 +20,7 @@ arbol.fit(X_tr, y_tr)
 # Modelo 1: Bootstrap Aggregating
 bagging = BaggingClassifier(
     estimator=DecisionTreeClassifier(random_state=42),  # sklearn<1.2: base_estimator=
-    n_estimators=10,     # número de modelos del ensemble
+    n_estimators=100,     # número de modelos del ensemble
     max_samples=1.0,      # tamaño de cada muestra bootstrap (fracción de N)
     bootstrap=True,       # True = bagging (con reemplazo); False = pasting
     oob_score=True,       # evaluación out-of-bag
@@ -30,7 +30,7 @@ print('OOB score (Bagging):', round(bagging.oob_score_, 4))
 
 # Modelo 2: Random Forest
 bosque = RandomForestClassifier(
-    n_estimators=10,
+    n_estimators=100,
     max_features='sqrt',  # subconjunto aleatorio de variables por división
     oob_score=True,
     n_jobs=-1, random_state=42)
